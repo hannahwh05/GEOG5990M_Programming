@@ -1,4 +1,4 @@
-#Practical 2 - Code shrinking I
+#Practical 2 - Code shrinking I 
 #201284811 Hannah Wheldon
 #Commented out sections from previous practical for comparison - can be removed
 
