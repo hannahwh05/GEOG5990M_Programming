@@ -1,4 +1,4 @@
-#Practical 9 - GUI - Agent Framework
+#Agent Framework
 #201284811 Hannah Wheldon
 #Commented out sections from previous practical for comparison - can be removed
 
