@@ -72,7 +72,7 @@ for i in range(num_of_agents):
     agents.append(agentframework3.Agent(i, environment, agents))
     #print all agents coordinates
     print(agents[i])
-
+'''
 #Move the agents
 #use the agentframework 
 for j in range(num_of_iterations):
@@ -81,7 +81,7 @@ for j in range(num_of_iterations):
         agents[i].move()
         #print(agents[i]) #Test to check move.
         agents[i].eat()
-        
+'''      
    
 #Generate scatter plot of randomly generated agents
 #limit y and x axes to 0-99
