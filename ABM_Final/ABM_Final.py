@@ -81,6 +81,7 @@ td_xs = soup.find_all(attrs={"class" : "x"})
 
 #set up container for agents
 agents = []
+
 for i in range(num_of_agents):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
