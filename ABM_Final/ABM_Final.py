@@ -68,7 +68,8 @@ f.close()
 ###############################################################################
 #scrape a web page to get the agent starting locations
 # beautiful soup 4 pulls data from html
-r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
+r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/'
+                 'python/agent-framework/part9/data.html')
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
 td_ys = soup.find_all(attrs={"class" : "y"})
