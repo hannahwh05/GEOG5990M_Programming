@@ -1,9 +1,17 @@
-#Agent Based Model
-#201284811 Hannah Wheldon
+'''
+Agent Based Model
+201284811 Hannah Wheldon
 
-#In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
-# to inline
+Version 1
 
+This model is run from tkinter GUI. 
+When this code is run, a window will will appear on the computer screen called
+Agent Based Model. To run the model, click "Run model" from the menu bar in 
+this window.
+
+In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
+to inline
+'''
 #use agentframework.py for agent parameters
 
 
@@ -103,8 +111,8 @@ def update(frame_number):
     fig.clear()
     global carry_on
     
-    matplotlib.pyplot.ylim(0, 299)
-    matplotlib.pyplot.xlim(0, 299)
+    matplotlib.pyplot.ylim(0, 300)
+    matplotlib.pyplot.xlim(0, 300)
     
     # plot environemnt 
     matplotlib.pyplot.imshow(environment)
@@ -161,7 +169,7 @@ def run():
 #use tkinter to make GUI interface and widgets
     
 root = tkinter.Tk() 
-root.wm_title("Model")
+root.wm_title("Agent Based Model")
 
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
 canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
