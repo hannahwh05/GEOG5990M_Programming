@@ -39,7 +39,7 @@ neighbourhood = 20
 f = open('in.txt', newline='') 
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 
-#set up environment container
+#set up environment container ti read data into
 environment = []
 for row in reader:
     #set up row container	
@@ -47,7 +47,7 @@ for row in reader:
     for value in row:
         #append values from rows in csv file to rowlist
         rowlist.append(value)
-    #append rowlist values from for loop to environment container
+    #append rowlist values from for loop into environment container
     environment.append(rowlist)
 
 #Close the reader    				
