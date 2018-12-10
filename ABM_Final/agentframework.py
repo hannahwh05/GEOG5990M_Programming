@@ -11,7 +11,7 @@ import random
 '''Create a new type of object with attributes attached
     Create own functions, using 'def'''
 class Agent (object):
-    #Constructor to pass agruments into to create Agent
+    #Constructor to pass arguments into to create Agent
     #Number of arguments must be 4 so y and x must = None
     def __init__(self, environment, agents, y = None, x = None):
         self.environment = environment
@@ -61,12 +61,12 @@ class Agent (object):
                 ave = sum /2
                 self.store = ave
                 agent.store = ave
-                #print("sharing " + str(dist) + " " + str(ave)) #test it is working
+                #print("sharing " + str(dist) + " " + str(ave)) #test
                 #print(self.store)
     
     
     #this function finds the distance between row a and row b using 
-    #pythadoras theorum while using the agent class
+    #pythagoras theorum while using the agent class
     def distance_between(self, agents_row_b):
         return (((self._x - agents_row_b._x)**2) +
                 ((self._y - agents_row_b._y)**2))**0.5
