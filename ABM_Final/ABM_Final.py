@@ -19,31 +19,32 @@ use agentframework.py for agent parameters
 
 ###############################################################################
 ################################# Import ######################################
-#import libraries/functions/packages at top of code
-#import tkinter libraries first
-import tkinter
+'''import libraries/functions/packages at top of code'''
 #2D plotting library
 import matplotlib
+import matplotlib.pyplot
+#animate plot
+import matplotlib.animation
 #framework to build tkinter graphics interface
+import tkinter
 matplotlib.use('TkAgg')
 #tkinter backend
 import matplotlib.backends.backend_tkagg
-import matplotlib.pyplot
-import matplotlib.animation 
 #pseudo-random number generator
 import random
-#import agent from separate file
+#imports agent from separate coded file to prevent repetition
 import agentframework
-#import raster data from csv file
+#imports raster data from csv file
 import csv
+#request information from HTML
 import requests
+#pulls data from HTML (beautiful soup 4)
 import bs4
 ###############################################################################
 
-
-# assign value to variables
+#assign value to variables
 num_of_agents = 10
-num_of_iterations = 100
+#num_of_iterations = 100
 neighbourhood = 20
 
 ###############################################################################
@@ -53,7 +54,7 @@ neighbourhood = 20
 f = open('in.txt', newline='') 
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 
-#set up environment container ti read data into
+#set up environment container to read data into
 environment = []
 for row in reader:
     #set up row container	
@@ -96,7 +97,7 @@ td_xs = soup.find_all(attrs={"class" : "x"})
 
 #set up container for agents
 agents = []
-
+#for loop 
 for i in range(num_of_agents):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
@@ -185,6 +186,7 @@ root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
 menu_bar.add_cascade(label="Menu", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
+#model_menu.add_command(label="Save as...", command=Animation.save)
 
 tkinter.mainloop()
 ###############################################################################

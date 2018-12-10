@@ -6,12 +6,14 @@ Version 1.0.0
 
 
 '''
-
+#pseudo-random number generator
 import random
 
+'''Create a new type of object with attributes attached
+    Create own functions, using 'def'''
 class Agent (object):
+    #Number of arguments must be 4 so y and x must = None
     def __init__(self, environment, agents, y = None, x = None):
-        #random.seed(random_seed)
         self.environment = environment
         #Make Agent aware of the other agents
         self.agents = agents
@@ -65,7 +67,9 @@ class Agent (object):
                 #print("sharing " + str(dist) + " " + str(ave)) #test it is working
                 #print(self.store)
     
-    #define what distance_between is i.e. pythagoras theorum
+    
+    '''this function finds the distance between row a and row b using 
+    pythadoras theorum while using the agent class'''
     def distance_between(self, agents_row_b):
         return (((self._x - agents_row_b._x)**2) +
                 ((self._y - agents_row_b._y)**2))**0.5
