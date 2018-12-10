@@ -146,22 +146,23 @@ def update(frame_number):
     for i in range(num_of_agents):
         #matplotlib.pyplot.scatter(agents[i][1], agents[i][0])
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
-    '''
+   # **************************************************************************
+    '''what does this do???'''
     #if random move is less than 0.01 stopping condition is met     
     if random.random() < 0.01:
         carry_on = False
         print("stopping condition")    
-    '''
-#set condition for when to stop 
+    
+#generator function to set condition for when to stop 
 def gen_function(b = [0]):
     a = 0
     global carry_on
     while (a < 100) & (carry_on) :
-        # Returns control and waits next call.
+        #function returns generator
         yield a			
         a = a + 1
 
-#define run to animate plot for GUI interface
+#define run for model to animate plot for GUI interface
 def run():
     global animation
     animation = matplotlib.animation.FuncAnimation(fig, update, 
@@ -171,8 +172,8 @@ def run():
     
 ###############################################################################
 ########################## GUI Interface ######################################
+
 #use tkinter to make GUI interface and widgets
-    
 root = tkinter.Tk() 
 root.wm_title("Agent Based Model")
 
@@ -184,7 +185,6 @@ root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
 menu_bar.add_cascade(label="Menu", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
-#model_menu.add_command(label="Save as...", command=Animation.save)
 
 tkinter.mainloop()
 ###############################################################################
