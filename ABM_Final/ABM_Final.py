@@ -11,6 +11,10 @@ When this code is run, a window will will appear on the computer screen called
 Agent Based Model. To run the model, click "Run model" from the menu bar in 
 this window.
 
+***Link to point below
+    #n.b. to run model with random coordinates instead of scraping from webpage,
+    # remove 3rd and 4th arguements above i.e. y, x
+
 In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
 to inline
 
@@ -87,17 +91,19 @@ r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/'
                  'python/agent-framework/part9/data.html')
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
+#read in y and x classes
 td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
-#print(td_ys) #test to see all y coordinates
-#print(td_xs) #test to see all x coordinates
+#print(td_ys) #test to see y coordinates are read in
+#print(td_xs) #test to see x coordinates are read in
 
 ###############################################################################
 
 
 #set up container for agents
 agents = []
-#for loop 
+'''for loop to append y and x classes read in above to each agents 
+y and x coordinates'''
 for i in range(num_of_agents):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
@@ -111,49 +117,41 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 carry_on = True
 
-# animation function        
+#animation function        
 def update(frame_number):
     
-    # clear previous display           
+    #clear previous display           
     fig.clear()
+    #create global variable to modify local variable outside of function
     global carry_on
-    
+    #make plot 300 x 300 due to size of environment
     matplotlib.pyplot.ylim(0, 300)
     matplotlib.pyplot.xlim(0, 300)
     
-    # plot environemnt 
+    #plot environemnt 
     matplotlib.pyplot.imshow(environment)
     
     
-    # for each agent - move and eat
+    #for each agent - move, eat and share with neighbours 
     for i in range(num_of_agents):
-        
+        #agents randomly move around environment
         random.shuffle(agents)
-        
         #print(agents[i])
         agents[i].move()
-        #print(agents[i]) #Test to check move.
+        #print(agents[i]) #test to check they have moved
         agents[i].eat()
-        
         agents[i].share_with_neighbours(neighbourhood)  
-  
     
     #for loop to plot all agents generated
     for i in range(num_of_agents):
         #matplotlib.pyplot.scatter(agents[i][1], agents[i][0])
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
-        
-        
-        
+    '''
+    #if random move is less than 0.01 stopping condition is met     
     if random.random() < 0.01:
         carry_on = False
-        print("stopping condition")
-    
-    # for each agent - plot it
-    #Generate scatter plot of randomly generated agents
-    #limit y and x axes to 0-99
-    
-
+        print("stopping condition")    
+    '''
 #set condition for when to stop 
 def gen_function(b = [0]):
     a = 0
@@ -191,4 +189,4 @@ model_menu.add_command(label="Run model", command=run)
 tkinter.mainloop()
 ###############################################################################
 
-print("Thank you for running the Model")
+print("Thank you for running the model")

@@ -44,6 +44,7 @@ class Agent (object):
         else:
             self._x = (self._x - 1) % 300
     
+    
     #Agent eats from environment
     #Agents eat what is left
     def eat(self):
@@ -74,3 +75,4 @@ class Agent (object):
         return (((self._x - agents_row_b._x)**2) +
                 ((self._y - agents_row_b._y)**2))**0.5
 
+print("stopping condition")
