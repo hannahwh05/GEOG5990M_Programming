@@ -1,8 +1,10 @@
 '''
 Agent Based Model
-201284811 Hannah Wheldon
 
-Version 1
+201284811 Hannah Wheldon
+GitHub username: hannahwh05
+
+Version 1.0.0
 
 This model is run from tkinter GUI. 
 When this code is run, a window will will appear on the computer screen called
@@ -11,20 +13,24 @@ this window.
 
 In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
 to inline
-'''
-#use agentframework.py for agent parameters
 
+use agentframework.py for agent parameters
+'''
 
 ###############################################################################
 ################################# Import ######################################
 #import libraries/functions/packages at top of code
 #import tkinter libraries first
 import tkinter
+#2D plotting library
 import matplotlib
+#framework to build tkinter graphics interface
 matplotlib.use('TkAgg')
+#tkinter backend
 import matplotlib.backends.backend_tkagg
 import matplotlib.pyplot
 import matplotlib.animation 
+#pseudo-random number generator
 import random
 #import agent from separate file
 import agentframework
@@ -159,8 +165,8 @@ def gen_function(b = [0]):
 #define run to animate plot for GUI interface
 def run():
     global animation
-    #animation = matplotlib.animation.FuncAnimation(fig, update, interval=1,repeat=False, frames=num_of_iterations)
-    animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
+    animation = matplotlib.animation.FuncAnimation(fig, update, 
+                frames=gen_function, repeat=False)
     canvas.show()
     #matplotlib.pyplot.show()
     
@@ -182,3 +188,5 @@ model_menu.add_command(label="Run model", command=run)
 
 tkinter.mainloop()
 ###############################################################################
+
+print("Thank you for running the Model")

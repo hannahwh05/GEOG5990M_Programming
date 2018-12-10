@@ -1,5 +1,11 @@
-#Agent Framework
-#201284811 Hannah Wheldon
+'''
+Agent Framework for ABM_Final
+
+201284811 Hannah Wheldon
+Version 1.0.0
+
+
+'''
 
 import random
 
