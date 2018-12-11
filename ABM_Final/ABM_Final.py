@@ -123,7 +123,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 carry_on = True
 
-    def update(frame_number):
+def update(frame_number):
     """ hkm
     
     """
@@ -157,7 +157,7 @@ carry_on = True
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
     
     #if random move is less than 0.01 stopping condition is met     
-    if random.random() < 0.001:
+    if random.random() < 0.01:
         carry_on = False
         print("stopping condition")    
     

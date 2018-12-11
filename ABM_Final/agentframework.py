@@ -82,7 +82,7 @@ class Agent (object):
         if self.store >=300:
             self.environment[self._x][self._y] +=300
             self.store -= 300
-            print("vomited here") # test to see if vomitted
+            #print("vomited here") # test to see if vomitted
     
     # This function finds the distance between row a and row b using 
     # pythagoras theorum while using the agent class
