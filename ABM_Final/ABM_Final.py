@@ -52,7 +52,6 @@ import bs4
 #assign value to variables
 
 num_of_agents = 25
-num_of_iterations = 500
 neighbourhood = 75
 
 ###############################################################################
@@ -79,8 +78,8 @@ f.close()
 #len(environment) # test to see size of environment based on csv file
 
 #test to see environment alone
-#matplotlib.pyplot.imshow(environment)
-#matplotlib.pyplot.show()
+matplotlib.pyplot.imshow(environment)
+matplotlib.pyplot.show()
 ###############################################################################
 
 
@@ -111,7 +110,7 @@ y and x coordinates'''
 for i in range(num_of_agents):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
-    agents.append(agentframework.Agent(environment, agents, y, x))
+    agents.append(agentframework.Agent(environment, agents))
     #n.b. to run model with random coordinates instead of scraping from webpage,
     # remove 3rd and 4th arguements above i.e. y, x
     
@@ -123,35 +122,40 @@ carry_on = True
 
 #animation function        
 def update(frame_number):
+    """ hkm
+    
+    """
     
     #clear previous display           
     fig.clear()
     #create global variable to modify local variable outside of function
     global carry_on
+    
     #make plot 300 x 300 due to size of environment
-    matplotlib.pyplot.ylim(0, 300)
+    matplotlib.pyplot.ylim(300, 0)
     matplotlib.pyplot.xlim(0, 300)
     
-    #plot environemnt 
-    matplotlib.pyplot.imshow(environment)
-    
+
+    #random.shuffle(agents)
+
     #for each agent - move, eat and share with neighbours 
     for i in range(num_of_agents):
         #agents randomly move around environment
-        random.shuffle(agents)
-        #print(agents[i])
         agents[i].move()
         #print(agents[i]) #test to check they have moved
         agents[i].eat()
         agents[i].share_with_neighbours(neighbourhood)
-        agents[i].vomit
+        agents[i].vomit()
         #for loop to plot all agents generated
+        
+    #plot environment 
+    matplotlib.pyplot.imshow(environment, vmin = 0, vmax= 300)
+    
+    for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
     
-   # **************************************************************************
-    '''what does this do???'''
     #if random move is less than 0.01 stopping condition is met     
-    if random.random() < 0.01:
+    if random.random() < 0.001:
         carry_on = False
         print("stopping condition")    
     
@@ -159,6 +163,7 @@ def update(frame_number):
 def gen_function(b = [0]):
     a = 0
     global carry_on
+    #a = number of iterations
     while (a < 100) & (carry_on) :
         #function returns generator
         yield a			
@@ -187,6 +192,7 @@ root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
 menu_bar.add_cascade(label="Menu", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
+#model_menu.add_command(label="close", command=run)
 
 tkinter.mainloop()
 ###############################################################################

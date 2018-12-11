@@ -19,12 +19,11 @@ import random
     
 class Agent (object):
     # Constructor to pass arguments into to create Agent
-    def __init__(self, environment, agents, neighbourhood, y = None, x = None):
+    def __init__(self, environment, agents, y = None, x = None):
         self.environment = environment
         #Make Agent aware of the other agents
         self.agents = agents
         self.store = 0
-        self.neighbourhood = neighbourhood
         if (x == None):
            self._x = random.randint(0,300)
         else:
@@ -55,8 +54,8 @@ class Agent (object):
     # Agents eat what is left
     
     def eat(self):
-        if self.environment[self._y][self._x] > 10:
-            self.environment[self._y][self._x] -= 10
+        if self.environment[self._x][self._y] > 10:
+            self.environment[self._x][self._y] -= 10
             self.store += 10   
     
     # Agents have neighbours which they share their food stores with if they
@@ -80,9 +79,10 @@ class Agent (object):
     # of stores
     
     def vomit(self):
-        if self.store >=1000:
-            self.environment[self.y][self.x] +=1000
-            self.store = self.store-1000
+        if self.store >=300:
+            self.environment[self._x][self._y] +=300
+            self.store -= 300
+            print("vomited here") # test to see if vomitted
     
     # This function finds the distance between row a and row b using 
     # pythagoras theorum while using the agent class
