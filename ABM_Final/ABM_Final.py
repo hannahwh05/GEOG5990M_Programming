@@ -23,7 +23,9 @@ use agentframework.py for agent parameters
 
 ###############################################################################
 ################################# Import ######################################
+
 '''import libraries/functions/packages at top of code'''
+
 #2D plotting library
 import matplotlib
 import matplotlib.pyplot
@@ -44,12 +46,14 @@ import csv
 import requests
 #pulls data from HTML (beautiful soup 4)
 import bs4
+
 ###############################################################################
 
 #assign value to variables
-num_of_agents = 10
-#num_of_iterations = 100
-neighbourhood = 20
+
+num_of_agents = 25
+num_of_iterations = 500
+neighbourhood = 75
 
 ###############################################################################
 ############################ Import environment ###############################
@@ -131,7 +135,6 @@ def update(frame_number):
     #plot environemnt 
     matplotlib.pyplot.imshow(environment)
     
-    
     #for each agent - move, eat and share with neighbours 
     for i in range(num_of_agents):
         #agents randomly move around environment
@@ -140,12 +143,11 @@ def update(frame_number):
         agents[i].move()
         #print(agents[i]) #test to check they have moved
         agents[i].eat()
-        agents[i].share_with_neighbours(neighbourhood)  
-    
-    #for loop to plot all agents generated
-    for i in range(num_of_agents):
-        #matplotlib.pyplot.scatter(agents[i][1], agents[i][0])
+        agents[i].share_with_neighbours(neighbourhood)
+        agents[i].vomit
+        #for loop to plot all agents generated
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
+    
    # **************************************************************************
     '''what does this do???'''
     #if random move is less than 0.01 stopping condition is met     
