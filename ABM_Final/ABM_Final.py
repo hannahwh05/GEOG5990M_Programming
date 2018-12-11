@@ -46,7 +46,7 @@ import csv
 import requests
 #pulls data from HTML (beautiful soup 4)
 import bs4
-
+from PIL import ImageGrab
 ###############################################################################
 
 '''assign value to variables'''
@@ -152,7 +152,7 @@ def update(frame_number):
         
     #plot environment and set minimum and maximum limits
     matplotlib.pyplot.imshow(environment, vmin = 0, vmax= 300)
-    
+        
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i]._x, agents[i]._y)
     
@@ -177,7 +177,6 @@ def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, 
                 frames=gen_function, repeat=False)
     canvas.show()
-    #matplotlib.pyplot.show()
     
 ###############################################################################
 ########################## GUI Interface ######################################
@@ -192,11 +191,16 @@ canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 menu_bar = tkinter.Menu(root)
 root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
-menu_bar.add_cascade(label="Menu", menu=model_menu)
+menu_bar.add_cascade(label="Model Menu", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
-#model_menu.add_command(label="close", command=run)
+model_menu.add_command(label="Close", command=root.destroy)
+
+#model_menu.add_command(label="Save as...", command=ImageGrab.grab.save('ABM.jpg'))
 
 tkinter.mainloop()
+
+
 ###############################################################################
 
-print("Thank you for running the model")
+print("***Thank you for running the model***")
+
