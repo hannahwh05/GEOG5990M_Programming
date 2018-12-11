@@ -75,7 +75,7 @@ class Agent (object):
                 # print("sharing " + str(dist) + " " + str(ave)) #test
                 # print(self.store)
     
-    # If Agent reaches store capacity of more than 1000, Agent will vomit 1000
+    # If Agent reaches store capacity of more than 300, Agent will vomit 300
     # of stores
     
     def vomit(self):
