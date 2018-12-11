@@ -195,9 +195,10 @@ menu_bar.add_cascade(label="Model Menu", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
 model_menu.add_command(label="Close", command=root.destroy)
 
-#model_menu.add_command(label="Save as...", command=ImageGrab.grab.save('ABM.jpg'))
+#model_menu.add_command(label="Save as...", command=tkinter.Image.('ABM.jpg'))
 
 tkinter.mainloop()
+
 
 
 ###############################################################################
