@@ -12,8 +12,8 @@ Agent Based Model. To run the model, click "Run model" from the menu bar in
 this window.
 
 ***Link to point below
-    #n.b. to run model with random coordinates instead of scraping from webpage,
-    # remove 3rd and 4th arguements above i.e. y, x
+    n.b. to run model with random coordinates instead of scraping from 
+    webpage, remove 3rd and 4th arguements above i.e. y, x
 
 In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
 to inline
