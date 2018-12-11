@@ -49,7 +49,7 @@ import bs4
 
 ###############################################################################
 
-#assign value to variables
+'''assign value to variables'''
 
 num_of_agents = 25
 neighbourhood = 75
@@ -57,7 +57,9 @@ neighbourhood = 75
 ###############################################################################
 ############################ Import environment ###############################
 ###############################################################################
-#read in raster data from csv
+
+'''read in raster data from csv'''
+
 f = open('in.txt', newline='') 
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 
@@ -102,11 +104,12 @@ td_xs = soup.find_all(attrs={"class" : "x"})
 
 ###############################################################################
 
-
 #set up container for agents
 agents = []
+
 '''for loop to append y and x classes read in above to each agents 
 y and x coordinates'''
+
 for i in range(num_of_agents):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
@@ -120,8 +123,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 
 carry_on = True
 
-#animation function        
-def update(frame_number):
+    def update(frame_number):
     """ hkm
     
     """
@@ -148,7 +150,7 @@ def update(frame_number):
         agents[i].vomit()
         #for loop to plot all agents generated
         
-    #plot environment 
+    #plot environment and set minimum and maximum limits
     matplotlib.pyplot.imshow(environment, vmin = 0, vmax= 300)
     
     for i in range(num_of_agents):
