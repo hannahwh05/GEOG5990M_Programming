@@ -1,6 +1,6 @@
 '''
 GEOG5990M Programming for Geographical Information Analysis: Core Skills
-Agent Framework for ABM_Final
+Agent Framework for Model
 
 This file contains the code for the Agent class. This is imported into the
 ABM_Final code. 
