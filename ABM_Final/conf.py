@@ -12,20 +12,24 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
-sys.path.append('C:\Users\Hannah\Documents\GitHub\GEOG5990M_Programming')
+sys.path.append('C:\Users\Hannah\Documents\GitHub\
+                GEOG5990M_Programming\ABM_Final\Model.py')
+sys.path.append('C:\Users\Hannah\Documents\GitHub\GEOG5990M_Programming\
+                ABM_Final\agentframework.py')
 
+# -- Project information -----------------------------------------------------
 
-project = 'ABM_Final'
+project = 'Model'
 copyright = '2018, Hannah Wheldon'
 author = 'Hannah Wheldon'
 
 # The short X.Y version
-version = ''
+version = '1.0.0'
 # The full version, including alpha/beta/rc tags
-release = '1'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,6 +45,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+	'sphinx.ext.intersphinx'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -103,7 +108,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ABM_Finaldoc'
+htmlhelp_basename = 'Modeldoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -130,7 +135,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ABM_Final.tex', 'ABM\\_Final Documentation',
+    (master_doc, 'Model.tex', 'Model Documentation',
      'Hannah Wheldon', 'manual'),
 ]
 
@@ -140,7 +145,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'abm_final', 'ABM_Final Documentation',
+    (master_doc, 'model', 'Model Documentation',
      [author], 1)
 ]
 
@@ -151,8 +156,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ABM_Final', 'ABM_Final Documentation',
-     author, 'ABM_Final', 'One line description of project.',
+    (master_doc, 'Model', 'Model Documentation',
+     author, 'Model', 'One line description of project.',
      'Miscellaneous'),
 ]
 
