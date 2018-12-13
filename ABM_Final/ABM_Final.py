@@ -9,8 +9,8 @@ Version 1.0.0
 
 This model is run from tkinter GUI. 
 When this code is run, a window will will appear on the computer screen called
-Agent Based Model. To run the model, click "Run model" from the menu bar in 
-this window.
+Agent Based Model. To run the model, click "Run" from the "Menu" in this 
+window. When the model has met the "stopping condition"
 
 n.b. to run model with random coordinates instead of scraping from webpage, 
 remove 3rd and 4th arguements **********************i.e. y, x
@@ -155,11 +155,6 @@ def update(frame_number):
 ######################'''Step 4: Stopping condition'''#########################
 ###############################################################################
 
-#if random number generated is less than 0.01 stopping condition is met     
-    if random.random() < 0.01:
-        carry_on = False
-        print("stopping condition")    
-    
 # generator function to set condition for when to stop 
 def gen_function(b = [0]):
     """A stopping function for the animation"""
@@ -169,7 +164,8 @@ def gen_function(b = [0]):
         #function returns generator
         yield a			
         a = a + 1
-        
+    print("stopping condition")
+    
 ###############################################################################
 #########################'''Step 5: Run the model'''###########################
 ############################################################################### 
@@ -204,4 +200,3 @@ tkinter.mainloop()
 ###############################################################################
 
 print("***Thank you for running the model***")
-
