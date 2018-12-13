@@ -10,10 +10,11 @@ Version 1.0.0
 This model is run from tkinter GUI. 
 When this code is run, a window will will appear on the computer screen called
 Agent Based Model. To run the model, click "Run" from the "Menu" in this 
-window. When the model has met the "stopping condition"
+window. When the model has met the "stopping condition", close the window and
+the figure will be printed to the console. 
 
 n.b. to run model with random coordinates instead of scraping from webpage, 
-remove 3rd and 4th arguements **********************i.e. y, x
+remove 3rd and 4th arguements i.e. y, x in Step 4.
 
 In Spyder set Tools > Preferences > Ipython console > Graphics > Set backend 
 to inline
@@ -36,8 +37,6 @@ import tkinter
 matplotlib.use('TkAgg')
 #tkinter backend
 import matplotlib.backends.backend_tkagg
-#pseudo-random number generator
-import random
 #imports agent from separate coded file to prevent repetition
 import agentframework
 #imports raster data from csv file
@@ -93,10 +92,10 @@ r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/'
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
 #read in y and x classes
-td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
-#print(td_ys) #test to see y coordinates are read in
+td_ys = soup.find_all(attrs={"class" : "y"})
 #print(td_xs) #test to see x coordinates are read in
+#print(td_ys) #test to see y coordinates are read in
 
 ###############################################################################
 ##########################'''Step 4: Plot agents'''############################
@@ -107,11 +106,11 @@ agents = []
 
 # for loop to append x and y classes, read in above, to each agent
 for i in range(num_of_agents):
-    y = int(td_ys[i].text)
     x = int(td_xs[i].text)
-    agents.append(agentframework.Agent(environment, agents, y, x))
+    y = int(td_ys[i].text)
+    agents.append(agentframework.Agent(environment, agents, x, y))
     #n.b. to run model with random coordinates, instead of scraping from 
-    # webpage, remove 3rd and 4th arguements above i.e. y, x
+    # webpage, remove 3rd and 4th arguements above i.e. x, y
     
 # set up figure size and axes
 fig = matplotlib.pyplot.figure(figsize=(8, 8))

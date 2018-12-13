@@ -6,6 +6,8 @@ This file contains the code for the Agent class. This is imported into the
 ABM_Final code. 
 
 201284811 Hannah Wheldon
+GitHub username: hannahwh05
+
 Version 1.0.0
 '''
 
